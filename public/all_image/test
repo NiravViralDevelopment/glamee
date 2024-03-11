@@ -1,0 +1,203 @@
+
+‏Documentation: https://myfatoorah.readme.io/docs/overview
+
+‏ For Testing API URL: https://apitest.myfatoorah.com/swagger/
+
+‏ For demo Token: https://myfatoorah.readme.io/docs/demo-information
+
+‏ For Test Cards: https://myfatoorah.readme.io/docs/test-cards
+
+‏ Sample Code: https://myfatoorah.readme.io/docs/sample-code
+
+‏Mobile SDKs: https://myfatoorah.readme.io/docs/sdk-guide
+
+‏ Flutter Plugin: https://myfatoorah.readme.io/docs/flutter
+
+‏ For live production, you need to use the following.
+
+‏ Live API URL: https://api.myfatoorah.com
+
+‏Email ID : Tech@myfatoorah.com
+
+‏For live API Key: you can get it from your account profile (as shown in the attached screenshot).
+‏og in to the Myfatoorah portal using your Super Master Account.
+‏For a multi-country account, be sure that you select the country you want from the upper right corner to get its live API token key.
+‏Choose the "Integration Settings" button from the left menu.
+‏Choose the "API Key" button from the drop-down menu.
+‏You will be redirected to the "API Key" page which contains the Live token key,
+‏Click on the "+Create" button to generate a new API token key.
+‏Click on the "Copy" icon on the lower right corner of the textbox to copy it and to use it in your integration.
+
+
+
+
+new 
+
+
+KK9cSiNEG13o1d5DkWSX5YIwhPNTD0EUgLVqVK4zMK2ZhT2l6YFt27eIB3DcVIRwtICSzigHtmAJad1_09fUFfXU8NUjO857O21PYsZZuN13oPK-3Mde1GpgyS6vXeYh2ge6IeG6CjT0knwRVi3s2bY4HduactCUION8pjyB-VMqYaiXJG9aQZZ3u8chmumcMtUXAodGAsaPy4QVLkhqhnwCyynVt4cuqWiKJ2VDIsGQ7hato44uVGAQ2Fyp9mixOCfv9Wykc9l7_7AWUbfcZIp5mIjuPiEGQEYqa_0J6XpJhsnb3aQaIea5-EJ9Fll5VYvInoGqNT36r3fDaIg7vMEtvKW07ZHUwOcGgHq_-_-crEBfoFSltCE1IANJg-hufacwE05XDQaP95EEWVXdSNrvCCXS47UBUMkBw1gMOVAv1MSdP4S6ULUuNMXsQxQwtEEZwyjKPbAlO9Rjq7-xBJ3XYjRQ83vAL8EE9Oo8aJlXnHhzkSwC8VbxQlPSvJTJL9yeE_EXI-MnOiZUryHkQmBp5111iorAd7kBaQLQbiDQac7wcTX2F8lqP-_9FS0DtiNf-7jSRDX4d_OU4A2s0QforOv4vDIcPtwA9sQQBy4tMb_tCcRRNul2crBUCWTgsfZ2gfnyWoLMqj4PmfDsoPlxW4yrJu2xvACCULAE38G7MYglK98VWDIMmhxZtTopyRJLCyv0xTwyy03ocr72fxHO8dxfmFlsSkXcchPLxkdIcg8c
+
+
+
+
+  public function bookPost($id)
+    {
+
+
+
+
+        $apiURL = 'https://apitest.myfatoorah.com';
+        $apiKey = 'KK9cSiNEG13o1d5DkWSX5YIwhPNTD0EUgLVqVK4zMK2ZhT2l6YFt27eIB3DcVIRwtICSzigHtmAJad1_09fUFfXU8NUjO857O21PYsZZuN13oPK-3Mde1GpgyS6vXeYh2ge6IeG6CjT0knwRVi3s2bY4HduactCUION8pjyB-VMqYaiXJG9aQZZ3u8chmumcMtUXAodGAsaPy4QVLkhqhnwCyynVt4cuqWiKJ2VDIsGQ7hato44uVGAQ2Fyp9mixOCfv9Wykc9l7_7AWUbfcZIp5mIjuPiEGQEYqa_0J6XpJhsnb3aQaIea5-EJ9Fll5VYvInoGqNT36r3fDaIg7vMEtvKW07ZHUwOcGgHq_-_-crEBfoFSltCE1IANJg-hufacwE05XDQaP95EEWVXdSNrvCCXS47UBUMkBw1gMOVAv1MSdP4S6ULUuNMXsQxQwtEEZwyjKPbAlO9Rjq7-xBJ3XYjRQ83vAL8EE9Oo8aJlXnHhzkSwC8VbxQlPSvJTJL9yeE_EXI-MnOiZUryHkQmBp5111iorAd7kBaQLQbiDQac7wcTX2F8lqP-_9FS0DtiNf-7jSRDX4d_OU4A2s0QforOv4vDIcPtwA9sQQBy4tMb_tCcRRNul2crBUCWTgsfZ2gfnyWoLMqj4PmfDsoPlxW4yrJu2xvACCULAE38G7MYglK98VWDIMmhxZtTopyRJLCyv0xTwyy03ocr72fxHO8dxfmFlsSkXcchPLxkdIcg8c';
+
+
+
+
+
+        /* ------------------------ Call getPaymentStatus Endpoint ------------------ */
+        //Inquiry using paymentId
+        $keyId   = '100202110305128442';
+        $KeyType = 'paymentId';
+
+        //Inquiry using invoiceId 
+        /*$keyId   = '613842';
+        $KeyType = 'invoiceId';*/
+
+        //Fill POST fields array
+        $postFields = [
+            'Key'     => $keyId,
+            'KeyType' => $KeyType
+        ];
+        //Call endpoint
+        $json       = callAPI("$apiURL/v2/getPaymentStatus", $apiKey, $postFields);
+
+        //Display the payment result to your customer
+        echo 'Payment status is ' . $json->Data->InvoiceStatus;
+
+
+        dd('fatoora');
+        // $data['amount'] = 20;
+        // $data['threeDSecure'] = true;
+        // $data['save_card'] = false;
+        // $data['description'] = 'Hello  Your order_id is ' . mt_rand(100000, 999999) . ' please pay and confirm your order.Thanks For making this order.';
+        // $data['currency'] = 'USD';
+        // $data['receipt']['email'] = true;
+        // $data['receipt']['sms'] = false;
+        // $data['customer']['first_name'] = 'disma';
+        // $data['customer']['email'] ='disma@redsparkinfo.co.in';
+        // $data['customer']['phone']['country_code'] = '+91';
+        // $data['customer']['phone']['number'] = '8141202375';
+        // $data['source']['id'] = 'src_all';
+        // $data['redirect']['url'] = route('web.thanks');
+
+        // $curl = curl_init();
+
+        // curl_setopt_array($curl, array(
+        //     CURLOPT_URL => "https://api.tap.company/v2/charges",
+        //     CURLOPT_RETURNTRANSFER => true,
+        //     CURLOPT_ENCODING => "",
+        //     CURLOPT_MAXREDIRS => 10,
+        //     CURLOPT_TIMEOUT => 30,
+        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        //     CURLOPT_CUSTOMREQUEST => "POST",
+        //     CURLOPT_POSTFIELDS => json_encode($data),
+        //     CURLOPT_HTTPHEADER => array(
+        //         'authorization: Bearer sk_test_XKokBfNWv6FIYuTMg5sLPjhJ', // SECRET API KEY
+        //         "content-type: application/json"
+        //     ),
+        // ));
+
+        // $response = curl_exec($curl);
+        // $err = curl_error($curl);
+
+        // curl_close($curl);
+
+        // $response = json_decode($response);
+        
+        // return redirect($response->transaction->url);
+
+        // return  $response->getBody();
+
+
+
+
+       $post_details = Post::find($id);
+       $consumer = User::find(Auth::id());
+       $consumer_email = $consumer->email;
+       $seller = User::find($post_details->seller_id);
+       $seller_email = $seller->email;
+
+       $level_info =Level::find($seller->level_id);
+       $seller_commision_pr = $level_info->seller_commissions;
+       $admin_commision_pr =$level_info->admin_commissions;
+
+       $seller_commision_amount = ($seller_commision_pr*$post_details->cost)/100;
+       $admin_commision_amount = ($admin_commision_pr*$post_details->cost)/100;
+       
+       $seller_old_earning = $seller->total_earning;
+       $seller_total_earning =  $seller_old_earning + $seller_commision_amount;
+
+      
+        
+
+       //booking 
+       $old_booking = Booking::where('post_id',$id)->where('user_id',Auth::id())->first();
+        if($old_booking != ''){
+            return redirect()->back();
+        }else{
+            $booking = new Booking();
+            $booking->user_id = Auth::id();
+            $booking->post_id = $id;
+            $booking->seller_id = $post_details->seller_id;
+            $booking->price = $post_details->cost;
+            $booking->seller_price = $seller_commision_amount;
+            $booking->admin_price = $admin_commision_amount;
+            $booking->status = 1;
+            $booking->payment_status = 1;
+            $booking->save();
+
+            // email 
+            Mail::send(
+                ['html' => 'front.email.thankyou_for_booking_post'],
+                array(
+                    'name' =>$consumer->name, 
+                    'post_details' =>$post_details, 
+                ),
+                function ($message) use ($consumer_email) {
+                    $message->from(env('MAIL_USERNAME'), 'GoKamp');
+                    $message->to($consumer_email);
+                    $message->subject("Thank You for Your Interest in Our Place - Here's Your Latitude");
+                }
+            );
+            Mail::send(
+                ['html' => 'front.email.post_booking_mail_seller'],
+                array(
+                    'name' =>$seller->name, 
+                    'consumer_name' =>$consumer->name,
+                    'post_name' =>$post_details->title,
+                    'seller_commision_amount' =>$seller_commision_amount,
+                    'date' =>$booking->created_at,
+                ),
+                function ($message) use ($seller_email) {
+                    $message->from(env('MAIL_USERNAME'), 'GoKamp');
+                    $message->to($seller_email);
+                    $message->subject("Congratulations! You've Earned a Commission on Go Kamp ");  
+                }
+            );
+            // update earning  
+            User::where('id',$seller->id)->update(array('total_earning' =>$seller_total_earning));
+            
+            // update levele 
+            if( $seller->level_min_value <= $seller_total_earning && $seller_total_earning >= $seller->level_max_value){
+                $new_level = Level::where('min_value','<',$seller_total_earning)->where('max_value','>',$seller_total_earning)->first();
+                $seller_update_level = $seller;
+                $seller_update_level->level_id = $new_level->id;
+                $seller_update_level->level_min_value = $new_level->min_value;
+                $seller_update_level->level_max_value = $new_level->max_value  ;
+                $seller_update_level->save();
+           }
+
+            return redirect()->back()->with('message',__('file.thank_you'));
+        }
+       
+       
+       
+    }
