@@ -202,4 +202,5 @@ return [
     
     "enter_referral_code" => "Enter referral code (Optional)",
     "unable_to_complete_payment" => "Unable to complete the payment !",
+    
 ];

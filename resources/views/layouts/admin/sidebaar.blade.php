@@ -90,6 +90,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('providers.index')}}">
+                            <i data-feather="providers" class="icon-dual text-white"></i> <span class="text-white" data-key="t-dashboardswidgets">Providers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link menu-link" href="{{ route('users.index')}}">
                             <i data-feather="users" class="icon-dual text-white"></i> <span class="text-white" data-key="t-dashboardswidgets">Users</span>
                         </a>

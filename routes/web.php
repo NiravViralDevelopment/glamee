@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('categories','Admin\CategoryController');
     Route::resource('cities','Admin\CitiesController');
     Route::resource('providertypes','Admin\ProviderTypeController');
+    Route::resource('providers','Admin\ProviderController');
     Route::resource('banner','Admin\BannerController');
     Route::resource('subscribers','Admin\SubscrbtionController');
     Route::resource('help','Admin\HelpController');

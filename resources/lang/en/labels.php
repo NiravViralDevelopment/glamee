@@ -10,7 +10,7 @@ return [
     */
 
     ///////////////////// extra  /////////////////
-    "app_name" => "Gamlee",
+    "app_name" => "Glamee",
     "admin" => "Admin",
     "provider_title" => "Provider",
     "add_wallet_description" => "Add money to wallet",

@@ -7,10 +7,22 @@ use Illuminate\Support\Facades\DB;
 
 class Provider extends Model
 {
-    protected $table = "providers";
+    public $table = "providers";
     // public $timestamps = false;
 
-    public function providertype(){
+    protected $fillable = [
+        'name',
+        'email',
+        'provider_type_id',
+        'profile_url',
+        'password',
+        'address',
+        'mobile',
+        'city',
+        'about'
+    ];
+
+    public function provider_type(){
         return $this->hasOne('App\Models\ProviderType','id','provider_type_id')->select('id','name');
     }
     public function city(){
