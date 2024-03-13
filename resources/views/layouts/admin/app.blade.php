@@ -26,18 +26,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <!-- JAVASCRIPT -->
-    <script src="{{asset('public/admin/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('public/admin/libs/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{asset('public/admin/libs/node-waves/waves.min.js')}}"></script>
-    <script src="{{asset('public/admin/libs/feather-icons/feather.min.js')}}"></script>
-    <script src="{{asset('public/admin/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
-    <script src="{{asset('public/admin/js/plugins.js')}}"></script>
+    <script src="{{asset('admin/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('admin/libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{asset('admin/libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{asset('admin/libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{asset('admin/js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+    <script src="{{asset('admin/js/plugins.js')}}"></script>
 
     <!-- apexcharts -->
-    <script src="{{asset('public/admin/libs/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{asset('admin/libs/apexcharts/apexcharts.min.js')}}"></script>
 
     <!-- projects js -->
-    <script src="{{asset('public/admin/js/pages/dashboard-projects.init.js')}}"></script>
+    <script src="{{asset('admin/js/pages/dashboard-projects.init.js')}}"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
@@ -45,9 +45,9 @@
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
     <!-- App js -->
-    <script src="{{asset('public/admin/js/app.js')}}"></script>
+    <script src="{{asset('admin/js/app.js')}}"></script>
 
-    <script src="{{ asset('public/admin/js/pages/datatables.init.js') }}"></script>
+    <script src="{{ asset('admin/js/pages/datatables.init.js') }}"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 

@@ -6,18 +6,18 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('public/admin/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('admin/images/favicon.ico')}}">
 
     <!-- Layout config Js -->
-    <script src="{{asset('public/admin/js/layout.js')}}"></script>
+    <script src="{{asset('admin/js/layout.js')}}"></script>
     <!-- Bootstrap Css -->
-    <link href="{{asset('public/admin/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="{{asset('public/admin/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{asset('public/admin/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="{{asset('public/admin/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
     <!--datatable css-->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
     <!--datatable responsive css-->
