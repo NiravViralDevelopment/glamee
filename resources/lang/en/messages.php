@@ -141,6 +141,9 @@ return [
     "routing_number_exist" => "Routing number exist ! Try another .",
     "subscription_exist" => "Subscription Exist !",
     "not_for_this_service" => "Coupon is not available for this Service!",
+    "subscriber_added" => "Subscriber added sucessfully.",
+    "subscriber_updated" => "Subscriber updated sucessfully." , 
+    "subscriber_deleted" => "Subscriber deleted successfully. ",  
 
     "handyman_added" => "Handyman added successfuly",
     "handyman_updated" => "Handyman updated successfuly",

@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 class Subscribe extends Model
 {
 
-   protected $table = "subscribe";
+   public $table = "subscribe";
+
+   protected $fillable = [
+      'email'
+   ];
 
    // public $timestamps = false;
 }
