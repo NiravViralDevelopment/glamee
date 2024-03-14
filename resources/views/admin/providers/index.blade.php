@@ -41,8 +41,6 @@
                                                     <th>Provider Type</th>
                                                     <th>Email</th>
                                                     <th>Mobile</th>
-                                                    <th>Status</th>
-                                                    <th>Verified</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -60,20 +58,14 @@
                                                             {{ $row->mobile }}
                                                         </td>
                                                         <td>
-                                                            {{ $row->status }}
-                                                        </td>
-                                                        <td>
-                                                            {{ $row->verified }}
-                                                        </td>
-                                                        <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="edit">
-                                                                    <a href="{{ route('providertypes.edit', $row->id) }}"
+                                                                    <a href="{{ route('providers.edit', $row->id) }}"
                                                                         class="btn btn-sm btn-primary edit-item-btn">Edit</a>
                                                                 </div>
                                                                 <div class="remove">
                                                                     <form
-                                                                        action="{{ route('providertypes.destroy', $row->id) }}"
+                                                                        action="{{ route('providers.destroy', $row->id) }}"
                                                                         method="POST">
                                                                         @csrf @method('DELETE')
                                                                         <button type="submit"

@@ -37,7 +37,7 @@
                                                 @csrf
                                                 <div class="row">
                                                     {{-- Name --}}
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="mb-3">
                                                             <label for="firstNameinput" class="form-label">Name</label>
                                                             <span class="text-danger">*</span>
@@ -51,11 +51,11 @@
                                                     </div>
 
                                                     {{-- Email --}}
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="mb-3">
                                                             <label for="emailInput" class="form-label">Email</label> <span
                                                                 class="text-danger">*</span>
-                                                            <input type="email" class="form-control" name="email"
+                                                            <input type="text" class="form-control" name="email"
                                                                 placeholder="Enter your email" id="emailInput">
                                                             @error('email')
                                                                 <span class="text-danger"
@@ -65,103 +65,111 @@
                                                     </div>
 
                                                     {{-- Password --}}
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="mb-3">
                                                             <label for="password" class="form-label">Password</label> <span
                                                                 class="text-danger">*</span>
 
-                                                            <input type="password" placeholder="Enter password"
-                                                                name="password" value="password" id="passwordInput">
+                                                            <input class="form-control" type="password" placeholder="Enter password"
+                                                                name="password" id="passwordInput">
                                                         </div>
                                                     </div>
 
                                                     {{-- Mobile --}}
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="mb-3">
                                                             <label for="mobileInput" class="form-label">Mobile</label> <span
                                                                 class="text-danger">*</span>
 
-                                                            <input type="text" placeholder="Enter mobile" name="mobile"
-                                                                value="mobile" id="mobileInput">
+                                                            <input class="form-control" type="text" placeholder="Enter mobile" name="mobile"
+                                                               id="mobileInput" />
                                                         </div>
                                                     </div>
 
+                                                    
+                                                    {{-- Profile --}}
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="profileInput" class="form-label">Profile</label> <span
+                                                                class="text-danger">*</span>
+                                            
+                                                                <input class="form-control" class="form-control" type="file" name="profile_url" id="profile_url" value="profile_url" />
+                                                        </div>
+                                                    </div>
+
+                                                {{-- Provider type --}}
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="provider_type" class="form-label">Provider type</label> <span
+                                                            class="text-danger">*</span>
+                                                        <select class="form-control" name="provider_type_id" id="provider_type">
+                                                            @foreach ($provider_types as $type)
+                                                                <option value="{{ $type->id }}">{{ $type->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                {{-- City --}}
+                                                <div class="col-md-12">
+                                                    <div class="mb-3">
+                                                        <label for="mobileInput" class="form-label">City</label> <span
+                                                            class="text-danger">*</span>
+                                                        <select class="form-control" name="city_id" id="city">
+                                                            @foreach ($cities as $city)
+                                                                <option value="{{ $city->id }}">{{ $city->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                     {{-- About me --}}
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="mb-3">
                                                             <label for="aboutInput" class="form-label">About</label> <span
                                                                 class="text-danger">*</span>
 
-                                                            <textarea placeholder="Enter about yourself" name="about"
-                                                                value="about" id="aboutInput">
-                                                            </div>
+                                                                <textarea name="about" class="form-cotnrol" id="about" cols="50" rows="5"></textarea>
                                                         </div>
-
-                                                        {{-- Profile --}}
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="profileInput" class="form-label">Profile</label> <span
-                                                                    class="text-danger">*</span>
-
-                                                                    <input type="file" name="profile_url" id="profile_url" value="profile_url" />
-                                                            </div>
-                                                        </div>
-
-                                                        {{-- Provider type --}}
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="provider_type" class="form-label">Provider type</label> <span
-                                                                    class="text-danger">*</span>
-
-                                                                <select name="provider_type" id="provider_type">
-                                                                    @foreach ($provider_types as $type)
-    <option value="{{ $type->id }}">{{ $type->name }}
-                                                                        </option>
-    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        {{-- City --}}
-                                                        <div class="col-md-6">
-                                                            <div class="mb-3">
-                                                                <label for="mobileInput" class="form-label">City</label> <span
-                                                                    class="text-danger">*</span>
-
-                                                                <select name="city" id="city">
-                                                                    @foreach ($cities as $city)
-    <option value="{{ $city->id }}">{{ $city->name }}
-                                                                        </option>
-    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-
-                                                        <hr>
-                                                        <div class="col-lg-12">
-                                                            <div class="">
-                                                                <button type="submit"
-                                                                    class="btn btn-success btn-sm">Submit</button>
-                                                                <a href="{{ route('categories.index') }}"
-                                                                    class="btn btn-danger btn-sm">Cancel</a>
-                                                            </div>
-                                                        </div>
-
                                                     </div>
-                                                </form>
-                                            </div>
+                                                    {{-- Address --}}
+                                                    <div class="col-md-12">
+                                                        <div class="mb-3">
+                                                            <label for="aboutInput" class="form-label">Address</label> <span
+                                                                class="text-danger">*</span>
 
+                                                                <textarea name="address" class="form-cotnrol" id="address" cols="50" rows="5"></textarea>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                                        <hr>
+                                                                        <div class="col-lg-6">
+                                                                            <div class="">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-success btn-sm">Submit</button>
+                                                                                <a href="{{ route('categories.index') }}"
+                                                                                    class="btn btn-danger btn-sm">Cancel</a>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
 @endsection

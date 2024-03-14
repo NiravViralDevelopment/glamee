@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\Provider;
+use App\Models\ProviderType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class ProviderController extends Controller
 {
-
     public function index()
     {
         $data = Provider::orderByDesc('id')->get();
@@ -19,7 +20,9 @@ class ProviderController extends Controller
 
     public function create()
     {
-        return view('admin.providers.create');
+        $provider_types = ProviderType::all();
+        $cities = City::all();
+        return view('admin.providers.create', compact(['provider_types', 'cities']));
     }
 
     /**
@@ -48,22 +51,104 @@ class ProviderController extends Controller
             "provider_type.required" => trans('messages.enter_provider_type'),
         ]);
         if ($validator->fails()) {
-
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
 
             $provider = new Provider();
             $provider->name = $request->name;
+            $provider->email = $request->email;
             $provider->password = Hash::make($request->password);
             $provider->address = $request->address;
             $provider->mobile = $request->mobile;
             $provider->about = $request->about;
-            $provider->profile_url = $request->profile_url;
+
+            $en_uploaded = '';
+            if ($request->hasFile('profile_url')) {
+                $image = $request->file('profile_url');
+                $en_uploaded = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/all_image');
+                $image->move($destinationPath, $en_uploaded);
+            }
+
+
             $provider->city_id = $request->city_id;
             $provider->provider_type_id = $request->provider_type_id;
             $provider->save();
 
             return redirect(route('providers.index'))->with('success', trans('messages.provider_added'));
         }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        $updatedProvider = Provider::find($id);
+        $provider_types = ProviderType::all();
+        $cities = City::all();
+        return view('admin.providers.edit', compact(['updatedProvider', 'provider_types', 'cities']));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => '',
+            'email' => '',
+            'mobile' => '',
+            'address' => '',
+            'city_id' => '',
+            'provider_type_id' => '',
+            'about' => ''
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            $provider = Provider::find($id);
+            if ($request->has('name')) {
+                $provider->name = $request->name;
+            }
+
+            if ($request->has('email')) {
+                $provider->email = $request->email;
+            }
+
+            if ($request->has('address')) {
+                $provider->address = $request->address;
+            }
+
+            if ($request->has('mobile')) {
+                $provider->mobile = $request->mobile;
+            }
+
+            if ($request->has('city_id')) {
+                $provider->city_id = $request->city_id;
+            }
+
+            if ($request->has('provider_type_id')) {
+                $provider->provider_type_id = $request->provider_type_id;
+            }
+
+            if ($request->has('about')) {
+                $provider->about = $request->about;
+            }
+
+            $provider->save();
+            
+            return redirect()->route('providers.index')->with('success', trans('messages.provider_updated'));
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        Provider::where('id', $id)->delete();
+        return redirect()->route('providers.index')->with('success', trans('messages.providers_deleted'));
     }
 }
