@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Banner extends Model
 {
     protected $table = "banners";
+
+    public $fillable = [
+        'type',
+        'category_id',
+        'service_id',
+        'image'
+    ];
     // public $timestamps = false;
 
     public function categoryname(){
