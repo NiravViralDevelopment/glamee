@@ -18,6 +18,26 @@ class Service extends Model
 
     protected $table = "services";
 
+    protected $fillable = [
+        'name',
+        'price',
+        'price_type',
+        'category_id',
+        'provider_id',
+        'discount',
+        'price_type',
+        'price',
+        'slug',
+        'image',
+        'duration_type',
+        'description',
+        'address',
+        'is_featured',
+        'is_available',
+        'is_deleted',
+        'duration'
+    ];
+
     // public $timestamps = false;
 
 

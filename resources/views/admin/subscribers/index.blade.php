@@ -27,7 +27,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header d-flex align-items-center">
-                                    <h5 class="card-title mb-0 flex-grow-1">City-Data</h5>
+                                    <h5 class="card-title mb-0 flex-grow-1">Subscribers-Data</h5>
                                     <div>
                                         <a href="{{ route('subscribers.create')}}" class="btn btn-primary btn-sm">Create</a>
                                     </div>
