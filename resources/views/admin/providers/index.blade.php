@@ -7,12 +7,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0">Banner</h4>
+                            <h4 class="mb-sm-0">Provider</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboards</a></li>
-                                    <li class="breadcrumb-item active">Banner</li>
+                                    <li class="breadcrumb-item active">Provider</li>
                                 </ol>
                             </div>
 
@@ -20,14 +20,15 @@
                     </div>
                 </div>
                 <div class="row project-wrapper">
-                    <div class="col-xxl-12">
+                    <div class="col-xxl-8">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header d-flex align-items-center">
-                                        <h5 class="card-title mb-0 flex-grow-1">Banner-Data</h5>
+                                        <h5 class="card-title mb-0 flex-grow-1">Provider-Data</h5>
                                         <div>
-                                            <a href="{{ route('banner.create')}}" class="btn btn-primary btn-sm">Create</a>
+                                            <a href="{{ route('providers.create') }}"
+                                                class="btn btn-primary btn-sm">Create</a>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -36,10 +37,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>No.</th>
-                                                    <th>Image</th>
-                                                    <th>Type</th>
-                                                    <th>Category Name</th>
-                                                    <th>Service Name</th>
+                                                    <th>Name</th>
+                                                    <th>Provider Type</th>
+                                                    <th>Email</th>
+                                                    <th>Mobile</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -47,29 +48,33 @@
                                                 @foreach ($data as $key => $row)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td><img width="50" height="50"
-                                                                src="{{ Helper::image_path($row->image) }}"
-                                                                alt="{{ trans('labels.users') }}"
-                                                                class="rounded table-image"></td>
-                                                        <td>{{ $row->type === 1 ? "Category" : "Service" }}</td>
-                                                        <td>{{ $row->categoryname ? $row->categoryname->name : "" }}</td>
-                                                        <td>{{ $row->servicename ? $row->servicename->name : "" }}</td>
+
+                                                        <td>{{ $row->name }}</td>
+                                                        <td>{{ $row->provider_type->name ? $row->provider_type->name : '' }}</td>
+                                                        <td>
+                                                            {{ $row->email }}
+                                                        </td>
+                                                        <td>
+                                                            {{ $row->mobile }}
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="edit">
-                                                                    <a href="{{ route('banner.edit',$row->id)}}" class="btn btn-sm btn-primary edit-item-btn">Edit</a>
+                                                                    <a href="{{ route('providers.edit', $row->id) }}"
+                                                                        class="btn btn-sm btn-primary edit-item-btn">Edit</a>
                                                                 </div>
                                                                 <div class="remove">
-        
-                                                                <form action="{{ route('banner.destroy',$row->id) }}" method="POST">
-                                                                    @csrf @method('DELETE')
-                                                                    <button type="submit" onclick="return confirm('Are you sure want to delete ? ')" class="btn btn-sm btn-danger remove-item-btn">Delete</button>
-                                                                </form>
-        
-                                                                
+                                                                    <form
+                                                                        action="{{ route('providers.destroy', $row->id) }}"
+                                                                        method="POST">
+                                                                        @csrf @method('DELETE')
+                                                                        <button type="submit"
+                                                                            onclick="return confirm('Are you sure want to delete ? ')"
+                                                                            class="btn btn-sm btn-danger remove-item-btn">Delete</button>
+                                                                    </form>
                                                                 </div>
-                                                                </div>
-                                                            </td> 
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
 

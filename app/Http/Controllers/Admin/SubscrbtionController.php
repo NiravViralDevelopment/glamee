@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subscribe;
+use Illuminate\Support\Facades\Validator;
 
 class SubscrbtionController extends Controller
 {
@@ -14,7 +15,7 @@ class SubscrbtionController extends Controller
     public function index()
     {
         $data = Subscribe::get();
-        return view('admin.Subscrbtion.index',compact('data'));
+        return view('admin.subscribers.index', compact('data'));
     }
 
     /**
@@ -22,7 +23,7 @@ class SubscrbtionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.subscribers.create');
     }
 
     /**
@@ -30,7 +31,20 @@ class SubscrbtionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'email' => 'required'
+        ], [
+            "email.required" => trans('messages.enter_email'),
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            Subscribe::create([
+                'email' => $request->email
+            ]);
+
+            return redirect(route('subscribers.index'))->with('success', trans('messages.subscriber_added'));
+        }
     }
 
     /**
@@ -46,7 +60,8 @@ class SubscrbtionController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $updatedSubscriber = Subscribe::find($id);
+        return view('admin.subscribers.edit', compact('updatedSubscriber'));
     }
 
     /**
@@ -54,7 +69,15 @@ class SubscrbtionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $subscriber = Subscribe::find($id);
+
+        if ($request->has('email')) {
+            $subscriber->email = $request->email;
+        }
+
+        $subscriber->save();
+
+        return redirect(route('subscribers.index'))->with('success',trans('messages.subscriber_updated'));
     }
 
     /**
@@ -62,6 +85,8 @@ class SubscrbtionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Subscribe::where('id', $id)->delete();
+        return redirect(route('subscribers.index'))->with('success',trans('messages.subscriber_deleted'));
+    
     }
 }

@@ -141,6 +141,9 @@ return [
     "routing_number_exist" => "Routing number exist ! Try another .",
     "subscription_exist" => "Subscription Exist !",
     "not_for_this_service" => "Coupon is not available for this Service!",
+    "subscriber_added" => "Subscriber added sucessfully.",
+    "subscriber_updated" => "Subscriber updated sucessfully." , 
+    "subscriber_deleted" => "Subscriber deleted successfully. ",  
 
     "handyman_added" => "Handyman added successfuly",
     "handyman_updated" => "Handyman updated successfuly",
@@ -202,4 +205,5 @@ return [
     
     "enter_referral_code" => "Enter referral code (Optional)",
     "unable_to_complete_payment" => "Unable to complete the payment !",
+    
 ];

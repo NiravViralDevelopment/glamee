@@ -29,7 +29,7 @@
                                 <div class="card-header d-flex align-items-center">
                                     <h5 class="card-title mb-0 flex-grow-1">Subscribers-Data</h5>
                                     <div>
-                                        <!-- <a href="{{ route('categories.create')}}" class="btn btn-primary btn-sm">Create</a> -->
+                                        <a href="{{ route('subscribers.create')}}" class="btn btn-primary btn-sm">Create</a>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -39,6 +39,7 @@
                                                 <th>No.</th>
                                                 <th>Email</th>
                                                 <th>Created At</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -47,7 +48,24 @@
                                                     <td>{{ $key+1 }}</td>
                                                     <td>{{ $row->email }}</td>
                                                     <td>{{ $row->created_at}}</td>
-                                                    
+                                                    <td>
+                                                        <div class="d-flex gap-2">
+                                                            <div class="edit">
+                                                                <a href="{{ route('subscribers.edit', $row->id) }}"
+                                                                    class="btn btn-sm btn-primary edit-item-btn">Edit</a>
+                                                            </div>
+                                                            <div class="remove">
+                                                                <form
+                                                                    action="{{ route('subscribers.destroy', $row->id) }}"
+                                                                    method="POST">
+                                                                    @csrf @method('DELETE')
+                                                                    <button type="submit"
+                                                                        onclick="return confirm('Are you sure want to delete ? ')"
+                                                                        class="btn btn-sm btn-danger remove-item-btn">Delete</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                     
                                                 </tr>
                                            @endforeach

@@ -5,19 +5,19 @@
             <!-- Dark Logo-->
             <a href="{{ route('home')}}" class="logo logo-dark">
                 <span class="logo-sm">
-                    <img src="{{ asset('public/glamee_logo/glamee_logo.png')}}" alt="" height="50">
+                    <img src="{{ asset('glamee_logo/glamee_logo.png')}}" alt="" height="50">
                 </span>
                 <span class="logo-lg">
-                    <img src="{{ asset('public/glamee_logo/glamee_logo.png')}}" alt="" height="70">
+                    <img src="{{ asset('glamee_logo/glamee_logo.png')}}" alt="" height="70">
                 </span>
             </a>
             <!-- Light Logo-->
             <a href="{{ route('home')}}" class="logo logo-light">
                 <span class="logo-sm">
-                    <img src="{{ asset('public/glamee_logo/glamee_logo.png')}}" alt="" height="50">
+                    <img src="{{ asset('glamee_logo/glamee_logo.png')}}" alt="" height="50">
                 </span>
                 <span class="logo-lg">
-                    <img src="{{ asset('public/glamee_logo/glamee_logo.png')}}" alt="" height="70">
+                    <img src="{{ asset('glamee_logo/glamee_logo.png')}}" alt="" height="70">
                 </span>
             </a>
             <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
@@ -87,6 +87,11 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="{{ route('providertypes.index')}}">
                             <i data-feather="users" class="icon-dual text-white"></i> <span class="text-white" data-key="t-dashboardswidgets">Provider Type</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('providers.index')}}">
+                            <i data-feather="providers" class="icon-dual text-white"></i> <span class="text-white" data-key="t-dashboardswidgets">Providers</span>
                         </a>
                     </li>
                     <li class="nav-item">
