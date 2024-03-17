@@ -163,7 +163,7 @@ class helper
             'email' => $email,
             'name' => $name,
             'password' => $password,
-            'logo' => asset('storage/app/public/images/' . $getlogo->logo)
+            'logo' => asset('storage/app/images/' . $getlogo->logo)
         ];
         try {
             Mail::send('Email.email', $data, function ($message) use ($data) {
@@ -334,7 +334,7 @@ class helper
         $user_noti->booking_status = 1;
         $user_noti->is_read = 2;
         $user_noti->save();
-        
+
         // for provider
         $noti = new Notification();
         $noti->user_id = $provider_id;
@@ -370,11 +370,11 @@ class helper
 
             $checkhandyman = User::find($handyman_id);
             $title = "Booking Assigned";
-            
+
             // for user
             $user_message = "Booking ".$booking_id." has been assigned to handyman.";
             helper::push_notification($title,$checkuser->token,$user_message);
-            
+
             // for handyman
             $handyman_message = "Booking ".$booking_id." has been assigned to you.";
             helper::push_notification($title,$checkhandyman->token,$handyman_message);
@@ -396,11 +396,11 @@ class helper
         $checkuser = User::find($checkbooking->user_id);
         $checkhandyman = User::find($handyman_id);
         $title = "Booking Assigned";
-        
+
         // for user
         $user_message = "Booking ".$booking_id." has been assigned to handyman.";
         helper::push_notification($title,$checkuser->token,$user_message);
-        
+
         // for handyman
         $handyman_message = "Booking ".$booking_id." has been assigned to you.";
         helper::push_notification($title,$checkhandyman->token,$handyman_message);
@@ -504,7 +504,7 @@ class helper
         }
     }
     public static function stripe_key()
-    {   
+    {
         $pmdata = PaymentMethods::select('test_public_key','test_secret_key')->where('payment_name','=','Stripe')->where('is_available',1)->first();
         return $pmdata->test_secret_key;
     }
@@ -537,7 +537,7 @@ class helper
         return $citydata;
     }
     public static function check_bank()
-    {   
+    {
         if(Auth::user()->type == 2){
             $check_bank = Bank::where('provider_id', Auth::user()->id)->count();
             return $check_bank;
@@ -567,8 +567,8 @@ class helper
     }
     public static function image_path($image)
     {
-        $path = asset('storage/app/public/images/not-found.png');
-        
+        // $path = asset('storage/app/public/images/not-found.png');
+        $path = Storage::url('storage/app/public/images/not-found.png');
         if(Str::contains($image, 'category')){
             $path = asset('storage/app/public/category/'.$image);
         }
@@ -594,6 +594,6 @@ class helper
             $path = asset('storage/app/public/images/'.$image);
         }
 
-        return $path;   
+        return $path;
     }
 }
