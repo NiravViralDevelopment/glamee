@@ -22,17 +22,17 @@
                     </div>
                 </div>
                 <div class="row project-wrapper">
-                    <div class="col-xxl-8">
+                    <div class="col-xxl-12">
                     <div class="row">
-                        <div class="col-xxl-6">
+                        <div class="col-xxl-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Form Provider type</h4>
-                                   
+
                                 </div>
 
                                 <div class="card-body">
-                                    
+
                                     <div class="live-preview">
                                         <form action="{{ route('providertypes.store')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -51,7 +51,7 @@
                                                         @error('image')<span class="text-danger" id="image_error">{{ $message }}</span>@enderror
                                                     </div>
                                                 </div>
-                                                
+
                                                 <hr>
                                                 <div class="col-lg-12">
                                                     <div class="">
@@ -59,16 +59,16 @@
                                                         <a href="{{ route('providertypes.index')}}" class="btn btn-danger btn-sm">Cancel</a>
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </form>
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                        </div> 
+                        </div>
 
-                        
+
                     </div>
                     </div>
 

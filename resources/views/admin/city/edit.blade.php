@@ -22,20 +22,20 @@
                     </div>
                 </div>
                 <div class="row project-wrapper">
-                    <div class="col-xxl-8">
+                    <div class="col-xxl-12">
                     <div class="row">
-                        <div class="col-xxl-6">
+                        <div class="col-xxl-12">
                             <div class="card">
                                 <div class="card-header align-items-center d-flex">
                                     <h4 class="card-title mb-0 flex-grow-1">Form CITY</h4>
-                                   
+
                                 </div>
 
                                 <div class="card-body">
-                                    
+
                                     <div class="live-preview">
                                         <form action="{{ route('cities.update',$updatecitydata->id)}}" method="POST" enctype="multipart/form-data">
-                                            @method('PUT')       
+                                            @method('PUT')
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -75,16 +75,16 @@
                                                         <a href="{{ route('cities.index')}}" class="btn btn-danger btn-sm">Cancel</a>
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </form>
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                        </div> 
+                        </div>
 
-                        
+
                     </div>
                     </div>
 
