@@ -126,6 +126,8 @@ return [
     "handyman_assigned" => "Handyman assigned successfully",
 
     "seat_added" => "Seat added successfully",
+    "banner_deleted" => "Banner deleted successfully",
+    "coupon_deleted" => "Coupon deleted successfully.",
 
     "provider_type_exist" => "Provider type already exist ! Try another",
     "city_exist" => "City already exist ! Try another .",

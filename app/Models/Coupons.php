@@ -8,6 +8,18 @@ use DB;
 class Coupons extends Model
 {
     protected $table = "coupons";
+
+    protected $fillable = [
+        'service_id',
+        'code',
+        'discount_type',
+        'discount',
+        'start_date',
+        'expire_date',
+        'description',
+        'is_available',
+        'is_deleted'
+    ];
     // public $timestamps = false;
 
     public function servicename(){
