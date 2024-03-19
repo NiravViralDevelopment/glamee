@@ -100,6 +100,10 @@
                                                                     <a href="{{ route('service.edit', $row->id) }}"
                                                                         class="btn btn-sm btn-primary edit-item-btn">Edit</a>
                                                                 </div>
+                                                                <div class="detail">
+                                                                    <a href="{{ route('service.show', $row->id) }}"
+                                                                        class="btn btn-sm btn-secondary show-item-btn">View</a>
+                                                                </div>
                                                                 <div class="remove">
                                                                     <form action="{{ route('service.destroy', $row->id) }}"
                                                                         method="POST">

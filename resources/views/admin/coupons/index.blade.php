@@ -72,6 +72,10 @@
                                                                     <a href="{{ route('coupons.edit', $row->id) }}"
                                                                         class="btn btn-sm btn-primary edit-item-btn">Edit</a>
                                                                 </div>
+                                                                <div class="edit">
+                                                                    <a href="{{ route('coupons.show', $row->id) }}"
+                                                                        class="btn btn-sm btn-secondary edit-item-btn">View</a>
+                                                                </div>
                                                                 <div class="remove">
 
                                                                     <form action="{{ route('coupons.destroy', $row->id) }}"
