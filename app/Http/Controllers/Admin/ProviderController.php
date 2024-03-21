@@ -90,6 +90,10 @@ class ProviderController extends Controller
         return view('admin.providers.edit', compact(['updatedProvider', 'provider_types', 'cities']));
     }
 
+    public function show(Provider $provider) {
+        return view('admin.providers.detail', compact(['provider'])); 
+    }
+
     /**
      * Update the specified resource in storage.
      */
