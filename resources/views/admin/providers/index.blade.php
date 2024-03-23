@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="row project-wrapper">
-                    <div class="col-xxl-8">
+                    <div class="col-xxl-12">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">

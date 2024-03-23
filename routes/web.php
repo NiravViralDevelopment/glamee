@@ -39,6 +39,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
+//privider
+Route::get('privider-login','HomeController@providerLogin')->name('providerlogin');
+
 Route::get('testing','HomeController@testing')->name('testing');
 Route::POST('store_profile','HomeController@store_profile')->name('store_profile');
 Route::get('testing_Delete/{id}','HomeController@testing_Delete')->name('testing_Delete');
