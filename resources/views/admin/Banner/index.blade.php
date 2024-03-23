@@ -27,7 +27,7 @@
                                     <div class="card-header d-flex align-items-center">
                                         <h5 class="card-title mb-0 flex-grow-1">Banner-Data</h5>
                                         <div>
-                                            <a href="{{ route('banner.create')}}" class="btn btn-primary btn-sm">Create</a>
+                                            <a href="{{ route('banner.create') }}" class="btn btn-primary btn-sm">Create</a>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -51,25 +51,33 @@
                                                                 src="{{ Helper::image_path($row->image) }}"
                                                                 alt="{{ trans('labels.users') }}"
                                                                 class="rounded table-image"></td>
-                                                        <td>{{ $row->type === 1 ? "Category" : "Service" }}</td>
-                                                        <td>{{ $row->categoryname ? $row->categoryname->name : "" }}</td>
-                                                        <td>{{ $row->servicename ? $row->servicename->name : "" }}</td>
+                                                        <td>{{ $row->type === 1 ? 'Category' : 'Service' }}</td>
+                                                        <td>{{ $row->categoryname ? $row->categoryname->name : '' }}</td>
+                                                        <td>{{ $row->servicename ? $row->servicename->name : '' }}</td>
                                                         <td>
                                                             <div class="d-flex gap-2">
                                                                 <div class="edit">
-                                                                    <a href="{{ route('banner.edit',$row->id)}}" class="btn btn-sm btn-primary edit-item-btn">Edit</a>
+                                                                    <a href="{{ route('banner.edit', $row->id) }}"
+                                                                        class="btn btn-sm btn-primary edit-item-btn">Edit</a>
+                                                                </div>
+                                                                <div class="detail">
+                                                                    <a href="{{ route('banner.show', $row->id) }}"
+                                                                        class="btn btn-sm btn-secondary edit-item-btn">View</a>
                                                                 </div>
                                                                 <div class="remove">
-        
-                                                                <form action="{{ route('banner.destroy',$row->id) }}" method="POST">
-                                                                    @csrf @method('DELETE')
-                                                                    <button type="submit" onclick="return confirm('Are you sure want to delete ? ')" class="btn btn-sm btn-danger remove-item-btn">Delete</button>
-                                                                </form>
-        
-                                                                
+
+                                                                    <form action="{{ route('banner.destroy', $row->id) }}"
+                                                                        method="POST">
+                                                                        @csrf @method('DELETE')
+                                                                        <button type="submit"
+                                                                            onclick="return confirm('Are you sure want to delete ? ')"
+                                                                            class="btn btn-sm btn-danger remove-item-btn">Delete</button>
+                                                                    </form>
+
+
                                                                 </div>
-                                                                </div>
-                                                            </td> 
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 @endforeach
 

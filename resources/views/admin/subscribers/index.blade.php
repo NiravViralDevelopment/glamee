@@ -54,6 +54,10 @@
                                                                 <a href="{{ route('subscribers.edit', $row->id) }}"
                                                                     class="btn btn-sm btn-primary edit-item-btn">Edit</a>
                                                             </div>
+                                                            <div class="detail">
+                                                                <a href="{{ route('subscribers.show', $row->id) }}"
+                                                                    class="btn btn-sm btn-secondary detail-item-btn">View</a>
+                                                            </div>
                                                             <div class="remove">
                                                                 <form
                                                                     action="{{ route('subscribers.destroy', $row->id) }}"
